@@ -42,3 +42,25 @@
 .feedback-form button:hover {
   background-color: #0056b3;
 }
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.gallery-item {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.gallery-link {
+  display: block;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto; 
+}
