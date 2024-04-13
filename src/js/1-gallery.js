@@ -1,8 +1,5 @@
-// Описаний в документації
 import SimpleLightbox from "simplelightbox";
-// Додатковий імпорт стилів
 import "simplelightbox/dist/simple-lightbox.min.css";
-
 
 const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
 
@@ -74,26 +71,27 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 const createGalleryItem = ({ preview, original, description }) => {
-return `
-  <li class="gallery-item">
-    <a class="gallery-link" href="${original}">
-      <img 
-        class="${preview}" 
-        src="${original}" 
-        alt="${description}" 
-      />
-    </a>
-  </li>
-`;
+  return `
+    <li class="gallery-item">
+      <a class="gallery-link" href="${original}">
+        <img 
+          class="${preview}" 
+          src="${preview}" 
+          alt="${description}" 
+        />
+      </a>
+    </li>
+  `;
 };
 const galleryMarkup = images.reduce((acc, image) => acc + createGalleryItem(image), '');
 gallery.innerHTML = galleryMarkup;
+
 gallery.addEventListener('click', (event) => {
-event.preventDefault();
-if (event.target.nodeName !== 'IMG') {
-  return;
-}
-const imageSrc = event.target.dataset.source;
-const instance = basicLightbox.create(`<img src="${imageSrc}" alt="">`);
-instance.show();
+  event.preventDefault();
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+  const imageSrc = event.target.parentNode.getAttribute('href');
+  const instance = new SimpleLightbox(`<img src="${imageSrc}" alt="">`);
+  instance.show();
 });
