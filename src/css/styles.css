@@ -10,6 +10,7 @@
 .feedback-form {
   max-width: 400px;
   margin: 0 auto;
+  margin-left: 20px;
 }
 
 .feedback-form label {
@@ -19,14 +20,14 @@
 
 .feedback-form input[type="email"],
 .feedback-form textarea {
-  width: 100%;
+  width: calc(100% - 16px);
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 .feedback-form textarea {
-  resize: vertical; /* Дозволяємо розширення в вертикальному напрямку */
+  resize: vertical;
 }
 
 .feedback-form button {
