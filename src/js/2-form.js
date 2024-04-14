@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const saveFormState = () => {
       const formData = {
-        email: form.email.value,
-        message: form.message.value
+        email: form.email.value.trim(),
+        message: form.message.value.trim()
       };
       localStorage.setItem(formStateKey, JSON.stringify(formData));
     };
@@ -19,18 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const { email, message } = form;
+      if (email.value.trim() === '' || message.value.trim() === '') {
+        alert('Please fill in all fields');
+        return;
+      }
+      console.log({ email: email.value, message: message.value });
+      localStorage.removeItem(formStateKey);
+      form.reset();
+    };
+  
     loadFormState();
   
     form.addEventListener('input', saveFormState);
-  
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      console.log({
-        email: form.email.value,
-        message: form.message.value
-      });
-      localStorage.removeItem(formStateKey);
-      form.reset();
-    });
+    form.addEventListener('submit', handleSubmit);
   });
   
