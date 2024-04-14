@@ -1,8 +1,6 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
-
 const images = [
   {
     preview:
@@ -86,12 +84,14 @@ const createGalleryItem = ({ preview, original, description }) => {
 const galleryMarkup = images.reduce((acc, image) => acc + createGalleryItem(image), '');
 gallery.innerHTML = galleryMarkup;
 
-gallery.addEventListener('click', (event) => {
-  event.preventDefault();
-  if (event.target.nodeName !== 'IMG') {
-    return;
-  }
-  const imageSrc = event.target.parentNode.getAttribute('href');
-  const instance = new SimpleLightbox(`<img src="${imageSrc}" alt="">`);
-  instance.show();
-});
+const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+
+//gallery.addEventListener('click', (event) => {
+//  event.preventDefault();
+//  if (event.target.nodeName !== 'IMG') {
+//    return;
+//  }
+//  const imageSrc = event.target.parentNode.getAttribute('href');
+//  const instance = new SimpleLightbox(`<img src="${imageSrc}" alt="">`);
+//  instance.show();
+//});
