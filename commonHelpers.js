@@ -6,6 +6,7 @@ import"./assets/styles-68dafe09.js";import{S as i}from"./assets/vendor-10cb7c31.
           src="${p}" 
           alt="${a}" 
         />
+        <p class="image-description">${a}</p>
       </a>
     </li>
   `,n=t.reduce((p,o)=>p+c(o),"");e.innerHTML=n;new i(".gallery a",{});
