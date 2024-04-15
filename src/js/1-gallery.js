@@ -77,10 +77,12 @@ const createGalleryItem = ({ preview, original, description }) => {
           src="${preview}" 
           alt="${description}" 
         />
+        <p class="image-description">${description}</p>
       </a>
     </li>
   `;
 };
+
 const galleryMarkup = images.reduce((acc, image) => acc + createGalleryItem(image), '');
 gallery.innerHTML = galleryMarkup;
 
