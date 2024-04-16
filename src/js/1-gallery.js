@@ -86,7 +86,7 @@ const galleryMarkup = images.reduce((acc, image) => acc + createGalleryItem(imag
 gallery.innerHTML = galleryMarkup;
 
 const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'description'
+  captionsData: images.description,
 });
 
 
