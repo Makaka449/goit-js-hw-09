@@ -85,5 +85,8 @@ const createGalleryItem = ({ preview, original, description }) => {
 const galleryMarkup = images.reduce((acc, image) => acc + createGalleryItem(image), '');
 gallery.innerHTML = galleryMarkup;
 
-const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'description'
+});
+
 
