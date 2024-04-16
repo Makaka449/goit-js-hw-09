@@ -87,12 +87,3 @@ gallery.innerHTML = galleryMarkup;
 
 const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
 
-//gallery.addEventListener('click', (event) => {
-//  event.preventDefault();
-//  if (event.target.nodeName !== 'IMG') {
-//    return;
-//  }
-//  const imageSrc = event.target.parentNode.getAttribute('href');
-//  const instance = new SimpleLightbox(`<img src="${imageSrc}" alt="">`);
-//  instance.show();
-//});
