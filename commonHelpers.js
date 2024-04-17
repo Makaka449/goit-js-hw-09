@@ -8,5 +8,5 @@ import"./assets/styles-68dafe09.js";import{S as t}from"./assets/vendor-10cb7c31.
         />
       </a>
     </li>
-  `,n=a.reduce((p,o)=>p+c(o),"");e.innerHTML=n;new t(".gallery a",{captionsData:a.map(p=>({src:p.original,title:p.description})),captionDelay:250});
+  `,n=a.reduce((p,o)=>p+c(o),"");e.innerHTML=n;new t(".gallery a",{captions:a.map(p=>({alt:p.description})),captionDelay:250});
 //# sourceMappingURL=commonHelpers.js.map
