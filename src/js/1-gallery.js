@@ -86,8 +86,9 @@ const galleryMarkup = images.reduce((acc, image) => acc + createGalleryItem(imag
 gallery.innerHTML = galleryMarkup;
 
 
+
 const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: images.map(image => ({ src: image.original, title: image.description })),
+  captions: images.map(image => ({ alt: image.description })),
   captionDelay: 250,
 });
 
