@@ -1,6 +1,6 @@
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
-
+import "../init";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 const images = [
   {
     preview:
@@ -67,29 +67,24 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector('.gallery');
-const createGalleryItem = ({ preview, original, description }) => {
-  return `
-    <li class="gallery-item">
-      <a class="gallery-link" href="${original}">
-        <img 
-          class="${preview}" 
-          src="${preview}" 
-          alt="${description}" 
-        />
-      </a>
-    </li>
-  `;
-};
+const galleryList = document.querySelector('.gallery');
 
-const galleryMarkup = images.reduce((acc, image) => acc + createGalleryItem(image), '');
-gallery.innerHTML = galleryMarkup;
+const marcup = images
+  .map(
+    ({ preview, original, description }) =>
+      `<li class="gallery-item">
+  <a class="gallery-link" href="${original}">
+    <img class="gallery-image" src="${preview}" alt="${description}" />
+  </a>
+</li>`
+  )
+  .join('');
 
+galleryList.innerHTML = marcup;
 
-const lightbox = new SimpleLightbox('.gallery a', {
-  captions: images.map(image => ({ alt: image.description })),
+const lightbox = new SimpleLightbox('.gallery-link', {
+  nav: true,
+  captions: true,
+  captionsData: 'alt',
   captionDelay: 250,
 });
-
-
-
